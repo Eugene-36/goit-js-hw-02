@@ -1,22 +1,27 @@
-function findLongestWord (string = "") {
+function reduceArray(array) {
+    'use strict';
+    let total = 0;
     // Write code under this line
-  const stringSplit = string.split(' ');
-  let longestWord = "";
     
-    for(const word of stringSplit) {
-      if (word.length > longestWord.length) {
-      longestWord = word;
-        
+            if (array.length > 0){
+            for(let i = 0; i < array.length; i += 1){
+            total += array[i];
     }
-   }
-     return longestWord;
-  }
+}
 
-  console.log(findLongestWord('The quick brown fox jumped over the lazy dog'));
-'jumped'
-
-console.log(findLongestWord('Google do a roll'));
-'Google'
-
-console.log(findLongestWord('May the force be with you'));
-'force'
+     
+    return total;
+  };
+  
+  console.log(reduceArray([1, 2, 3]));
+  6
+  
+  console.log(reduceArray([-2, 0, 2]));
+  0
+  
+  console.log(reduceArray([1, 2, 2.5]));
+  5.5
+//   Напиши функцию reduceArray(array), которая принимает числовой массив array. Если массив array не пустой, 
+//   необходимо посчитать сумму всех элементов массива, используя цикл for.
+//    Для подсчета суммы используй переменную total. 
+//   Функция должна возвращать 0 если массив пустой и значение total в противном случае.  

@@ -1,32 +1,46 @@
-
-function formatString (string, maxLength = 40) {
+function isLoginValid (login, min = 4, max = 16) {
     // Write code under this line
-    
-    const result = string.length < maxLength ? string : string.slice(0, maxLength )  + "...";
-   return result;
+    return login.length >= min && login.length <= max;
   }
   
-  console.log(formatString('Curabitur ligula sapien, tincidunt non.'));
-  'Curabitur ligula sapien, tincidunt non.'
+  function isLoginUnique  (allLogins, login) {
+    'use strict';
+    // Write code under this line
+    return !allLogins.includes(login);
+    
+  }
   
-  console.log(formatString('Vestibulum facilisis, purus nec pulvinar iaculis.'));
-   'Vestibulum facilisis, purus nec pulvinar...'
-
-  console.log(formatString('Vestibulum facilisis, purus nec pulvinar iaculis.', 30));
-   'Vestibulum facilisis, purus ne...'
-
-
-
-// Форматирование строки в зависимости от длинны строки
-// Напиши функцию formatString(string, maxLength = 40) которая принимает строку и форматирует ее если необходимо.
-
-// Если длина строки не превышает maxLength, функция возвращает ее в исходном виде.
-// Если длина больше maxLength, то функция обрезает строку до размера maxLength символов и добавляет в конец строки троеточие ..., 
-// после чего возвращает укороченную версию
-
-    // if(string <= maxLength){
-    //     return string;
-    // }else if(string > maxLength){
-    //     string.slice();
-    // }
-    // return string;
+  function addLogin (allLogins, login) {
+    'use strict';
+    const SUCCESS = 'Логин успешно добавлен!';
+    const REFUSAL = 'Такой логин уже используется!';
+    const ERROR = 'Ошибка! Логин должен быть размером от 4 до 16 символов';
+    let message;
+    // Write code under this line    
+    if(isLoginValid(login) == true){
+      if(isLoginUnique(allLogins, login) == true){
+          message = SUCCESS;
+          allLogins.push(login);
+      } else {
+          message = REFUSAL;
+      }
+    } else {
+        message = ERROR;
+    }
+    return message;
+  }
+  
+  
+  const logins = ['Mango', 'robotGoogles', 'Poly', 'Aj4x1sBozz', 'qwerty123'];
+  
+  console.log(addLogin(logins, 'Ajax')); 
+  // 'Логин успешно добавлен!'
+  
+   console.log(addLogin(logins, 'robotGoogles')); 
+  // 'Такой логин уже используется!'
+  
+  console.log(addLogin(logins, 'Zod'));
+  // 'Ошибка! Логин должен быть от 4 до 16 символов'
+  
+  console.log(addLogin(logins, 'jqueryisextremelyfast')); 
+  // 'Ошибка! Логин должен быть от 4 до 16 символов' 
