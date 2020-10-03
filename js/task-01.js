@@ -9,7 +9,7 @@ const getItemsString = function(array) {
       return result;
   };
   
-  //console.log(getItemsString(['Mango', 'Poly', 'Ajax', 'Lux', 'Jay', 'Kong']));
+  console.log(getItemsString(['Mango', 'Poly', 'Ajax', 'Lux', 'Jay', 'Kong']));
   /*
   '1 - Mango
   2 - Poly
@@ -20,7 +20,7 @@ const getItemsString = function(array) {
   '
   */
   
-  //console.log(getItemsString([5, 10, 15]));
+  console.log(getItemsString([5, 10, 15]));
   /*
   '1 - 5
   2 - 10
